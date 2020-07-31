@@ -1,0 +1,37 @@
+{
+  "name": "@caz-templates/nm",
+  "version": "0.0.0",
+  "private": true,
+  "description": "A template for creating node modules.",
+  "keywords": [
+    "nm",
+    "caz-templates",
+    "caz",
+    "zce"
+  ],
+  "repository": "caz-templates/nm",
+  "license": "MIT",
+  "author": "zce <w@zce.me> (https://zce.me)",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard --fix && jest"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ],
+    "ignore": [
+      "template"
+    ]
+  },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "<rootDir>/template"
+    ]
+  },
+  "devDependencies": {
+    "caz": "0.0.0-alpha.9",
+    "jest": "^26.2.1",
+    "standard": "^14.3.4"
+  }
+}
