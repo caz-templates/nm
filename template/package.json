@@ -1,0 +1,49 @@
+{
+  "name": "<%= name %>",
+  "version": "<%= version %>",
+  "description": "<%= description %>",
+  "keywords": [
+    "<%= name %>"<% if (features.includes('cli')) { %>,
+    "cli"<% } %>,
+    "zce"
+  ],
+  "homepage": "https://github.com/<%= github %>/<%= name %>#readme",
+  "bugs": {
+    "url": "https://github.com/<%= github %>/<%= name %>/issues"
+  },
+  "license": "<%= license %>",
+  "author": {
+    "name": "<%= author %>",
+    "email": "<%= email %>",
+    "url": "<%= url %>"
+  },
+  "files": [<% if (features.includes('cli')) { %>
+    "bin",<% } %>
+    "lib"
+  ],
+  "main": "lib/index.js"<% if (features.includes('cli')) { %>,
+  "bin": "bin/<%= name %>.js"<% } %>,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<%= github %>/<%= name %>.git"
+  },
+  "scripts": {
+    "lint": "standard --fix"<% if (features.includes('test')) { %>,
+    "test": "jest<%= features.includes('coverage') ? ' --coverage' : '' %>"<% } %>
+  },<% if (features.includes('test')) { %>,
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  },<% } %>
+  "dependencies": {<% if (features.includes('cli')) { %>
+    "cac": "^6.6.1"
+  <% } %>},
+  "devDependencies": {<% if (features.includes('test')) { %>
+    "jest": "^26.1.0",<% } %>
+    "standard": "^14.3.4"
+  },
+  "engines": {
+    "node": ">=8"
+  }
+}

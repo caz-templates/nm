@@ -1,76 +1,101 @@
-// // !!! Sharing the dependencies of zce-cli
-// module.paths = module.parent.paths
+// @ts-check
 
-// const path = require('path')
-// const chalk = require('chalk')
-// const caz = require('caz')
+// !!! Sharing the dependencies of caz
+module.paths = module.parent.paths
+
+const path = require('path')
+const chalk = require('chalk')
+const caz = require('caz')
 const pkg = require('./package.json')
+
+const date = new Date()
 
 /** @type {import('caz').Template} */
 module.exports = {
   name: pkg.name,
   version: pkg.version,
   metadata: {
-    // TODO: predefined template metadata
-    // e.g. year: new Date().getFullYear()
+    year: date.getFullYear(),
+    month: ('0' + (date.getMonth() + 1)).substr(-2),
+    day: ('0' + date.getDate()).substr(-2)
   },
   prompts: [
     {
-      type: 'text',
       name: 'name',
+      type: 'text',
       message: 'Project name'
     },
     {
-      type: 'text',
       name: 'version',
+      type: 'text',
       message: 'Project version'
     },
     {
-      type: 'text',
       name: 'description',
+      type: 'text',
       message: 'Project description',
-      initial: (prev, values) => `A template for creating ${values.name} apps.`
+      initial: 'Awesome node modules.'
     },
     {
-      type: 'text',
       name: 'author',
+      type: 'text',
       message: 'Project author name'
     },
     {
-      type: 'text',
       name: 'email',
+      type: 'text',
       message: 'Project author email'
     },
     {
-      type: 'text',
       name: 'url',
+      type: 'text',
       message: 'Project author url'
     },
     {
+      name: 'license',
       type: 'text',
+      message: 'Project license',
+      initial: 'mit'
+    },
+    // {
+    //   name: 'license',
+    //   type: 'select',
+    //   message: 'Project license',
+    //   hint: ' ',
+    //   initial: undefined,
+    //   choices: [
+    //     { title: 'MIT', value: 'mit' },
+    //     { title: 'Apache', value: 'apache' }
+    //   ]
+    // },
+    {
       name: 'github',
+      type: 'text',
       message: 'GitHub username or organization',
-      initial: 'caz-templates'
+      initial: 'zce'
     },
     {
-      type: 'multiselect',
       name: 'features',
+      type: 'multiselect',
       message: 'Choose the features you need',
       instructions: false,
       choices: [
-        { name: 'Feature1', value: 'feature1' },
-        { name: 'Feature2', value: 'feature2', selected: true }
+        { title: 'CLI Program', value: 'cli' },
+        { title: 'Additional docs', value: 'docs' },
+        { title: 'Additional examples', value: 'example' },
+        { title: 'Automatic test', value: 'test', selected: true },
+        { title: 'Test coverage', value: 'coverage' }
       ]
     },
     {
-      type: 'confirm',
       name: 'install',
+      type: 'confirm',
       message: 'Install dependencies',
       initial: true
     },
     {
-      type: prev => prev ? 'select' : null,
       name: 'pm',
+      type: prev => prev ? 'select' : null,
       message: 'Package manager',
       hint: ' ',
       choices: [
@@ -81,41 +106,33 @@ module.exports = {
     }
   ],
   filters: {
-    // TODO: custom filters
-    // /** @param {{ features: string[] }} answers */
-    // 'test/**': answers => answers.features.includes('test'),
-    // /** @param {{ features: string[] }} answers */
-    // '.travis.yml': answers => answers.features.includes('test')
+    /** @param {{ features: string[] }} answers */
+    'bin/**': answers => answers.features.includes('cli'),
+    /** @param {{ features: string[] }} answers */
+    'docs/**': answers => answers.features.includes('docs'),
+    /** @param {{ features: string[] }} answers */
+    'example/**': answers => answers.features.includes('example'),
+    /** @param {{ features: string[] }} answers */
+    'test/**': answers => answers.features.includes('test'),
+    /** @param {{ features: string[] }} answers */
+    '.travis.yml': answers => answers.features.includes('test')
   },
-  helpers: {
-    // TODO: custom helpers
-    // e.g. upper: str => str.toUpperCase()
-  },
-  // TODO: install by npm / yarn
   install: 'npm',
-  // TODO: git init
   init: true,
-  setup: async ctx => {
-    // TODO: custom setup hook
-  },
   prepare: async ctx => {
-    // TODO: custom prepare hook
-  },
-  emit: async ctx => {
-    // TODO: custom emit hook
+    ctx.config.install = ctx.answers.pm
   },
   complete: async ctx => {
-    // TODO: generate complete callback
-    // console.clear()
-    // console.log(chalk`Created a new project in {cyan ${ctx.project}} by the {blue ${caz.file.tildify(ctx.template)}} template.\n`)
-    // console.log('Getting Started:')
-    // if (ctx.dest !== process.cwd()) {
-    //   console.log(chalk`  $ {cyan cd ${path.relative(process.cwd(), ctx.dest)}}`)
-    // }
-    // if (ctx.config.install == false) {
-    //   console.log(chalk`  $ {cyan npm install} {gray # or yarn}`)
-    // }
-    // console.log(chalk`  $ {cyan ${config.config.install ? config.config.install : 'npm'} test}`)
-    // console.log('\nHappy hacking :)\n')
+    console.clear()
+    console.log(chalk`Created a new project in {cyan ${ctx.project}} by the {blue ${caz.file.tildify(ctx.template)}} template.\n`)
+    console.log('Getting Started:')
+    if (ctx.dest !== process.cwd()) {
+      console.log(chalk`  $ {cyan cd ${path.relative(process.cwd(), ctx.dest)}}`)
+    }
+    if (ctx.config.install == false) {
+      console.log(chalk`  $ {cyan npm install} {gray # or yarn}`)
+    }
+    console.log(chalk`  $ {cyan ${ctx.config.install ? ctx.config.install : 'npm'} test}`)
+    console.log('\nHappy hacking :)\n')
   }
 }
