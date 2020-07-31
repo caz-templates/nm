@@ -30,7 +30,7 @@
   "scripts": {
     "lint": "standard --fix"<% if (features.includes('test')) { %>,
     "test": "jest<%= features.includes('coverage') ? ' --coverage' : '' %>"<% } %>
-  },<% if (features.includes('test')) { %>,
+  },<% if (features.includes('test')) { %>
   "standard": {
     "env": [
       "jest"
