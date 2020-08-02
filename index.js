@@ -8,6 +8,7 @@ const chalk = require('chalk')
 const pkg = require('./package.json')
 
 const isTest = process.env.NODE_ENV === 'test'
+const date = new Date()
 
 /** @type {import('caz').Template} */
 module.exports = {
@@ -95,7 +96,7 @@ module.exports = {
     },
     {
       name: 'pm',
-      type: prev => prev ? 'select' : null,
+      type: prev => isTest || prev ? 'select' : null,
       message: 'Package manager',
       hint: ' ',
       choices: [
