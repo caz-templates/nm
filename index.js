@@ -52,18 +52,17 @@ module.exports = {
       type: 'text',
       message: 'Project author url'
     },
-    {
-      name: 'license',
-      type: 'text',
-      message: 'Project license',
-      initial: 'mit'
-    },
+    // {
+    //   name: 'license',
+    //   type: 'text',
+    //   message: 'Project license',
+    //   initial: 'mit'
+    // },
     {
       name: 'license',
       type: 'select',
       message: 'Project license',
       hint: ' ',
-      initial: undefined,
       choices: [
         { value: 'MIT' },
         { value: 'Apache' }
