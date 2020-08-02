@@ -38,6 +38,11 @@ $ cd my-template
 $ npm test # or `yarn test`
 ```
 
+## Todos
+
+- [ ] use TypeScript branch template
+- [ ] use Rollup branch template
+
 ## Contributing
 
 1. **Fork** it on GitHub!
