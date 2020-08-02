@@ -1,6 +1,6 @@
 {
   "name": "@caz-templates/nm",
-  "version": "0.0.0-alpha.0",
+  "version": "0.1.0",
   "private": true,
   "description": "A template for creating node modules.",
   "keywords": [
@@ -42,7 +42,7 @@
     "standard": "^14.3.4"
   },
   "devDependencies": {
-    "caz": "0.1.0-beta.2",
+    "caz": "0.1.0",
     "jest": "26.2.2",
     "standard": "14.3.4"
   }
