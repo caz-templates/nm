@@ -1,19 +1,17 @@
 #!/usr/bin/env node
 
-const program = require('commander')
-const pkg = require('../package')
+const cac = require('cac')
 const <%= _.camelCase(name) %> = require('..')
+const { name, version } = require('../package')
 
-program
-  .version(pkg.version)
-  .usage('<input>')
-  .option('-H, --host', 'Email host')
-  .on('--help', console.log)
-  .parse(process.argv)
-  .args.length || program.help()
-
-const { args, host } = program
-const [ input ] = args
+const cli = cac(name)
 
 // TODO: Implement module cli
+
+cli.option('--host <host>', 'Email host')
+
+cli.help().version(version)
+
+const { args: [input], options: { host } } = cli.parse()
+
 console.log(<%= _.camelCase(name) %>(input, { host }))

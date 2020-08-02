@@ -52,12 +52,6 @@ module.exports = {
       type: 'text',
       message: 'Project author url'
     },
-    // {
-    //   name: 'license',
-    //   type: 'text',
-    //   message: 'Project license',
-    //   initial: 'mit'
-    // },
     {
       name: 'license',
       type: 'select',
@@ -65,7 +59,9 @@ module.exports = {
       hint: ' ',
       choices: [
         { value: 'MIT' },
-        { value: 'Apache' }
+        { value: 'BSD-3-Clause' },
+        { value: 'Apache' },
+        { value: 'Unlicense' }
       ]
     },
     {

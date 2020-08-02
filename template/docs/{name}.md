@@ -2,4 +2,4 @@
 
 > <%= description %>
 
-<!-- TODO: Implement module docs -->
+<!-- TODO: Implement additional module docs -->

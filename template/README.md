@@ -83,7 +83,7 @@ Options:
 
 ## License
 
-[<%= license %>](LICENSE) &copy; <%= author %>
+[<%= license %>](LICENSE) &copy; [<%= author %>](<%= url %>)
 
 
 <% if (features.includes('test')) { %>
