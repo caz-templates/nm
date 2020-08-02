@@ -1,10 +1,11 @@
 {
   "name": "@caz-templates/nm",
-  "version": "0.0.0",
+  "version": "0.0.0-alpha.0",
   "private": true,
   "description": "A template for creating node modules.",
   "keywords": [
-    "nm",
+    "module",
+    "node",
     "caz-templates",
     "caz",
     "zce"
@@ -16,6 +17,17 @@
   "scripts": {
     "test": "standard --fix && jest"
   },
+  "jest": {
+    "testTimeout": 30000,
+    "modulePathIgnorePatterns": [
+      "<rootDir>/template"
+    ]
+  },
+  "renovate": {
+    "extends": [
+      "zce"
+    ]
+  },
   "standard": {
     "env": [
       "jest"
@@ -24,19 +36,14 @@
       "template"
     ]
   },
-  "jest": {
-    "modulePathIgnorePatterns": [
-      "<rootDir>/template"
-    ]
-  },
   "dependencies": {
     "cac": "^6.6.1",
-    "jest": "^26.2.1",
+    "jest": "^26.2.2",
     "standard": "^14.3.4"
   },
   "devDependencies": {
-    "caz": "0.0.0-alpha.9",
-    "jest": "^26.2.1",
-    "standard": "^14.3.4"
+    "caz": "0.0.0-alpha.10",
+    "jest": "26.2.2",
+    "standard": "14.3.4"
   }
 }

@@ -9,30 +9,33 @@
 
 ## Usage
 
-Prerequisites: [Node.js](https://nodejs.org) (>= 10.12, 12.10 preferred), [npm](https://www.npmjs.com) (>= 6.x) or [yarn](https://yarnpkg.com) (>= 1.20) and [Git](https://git-scm.com).
+Prerequisites: [Node.js](https://nodejs.org) (>= 10.17, 12.10 preferred), [npm](https://www.npmjs.com) (>= 6.x) or [yarn](https://yarnpkg.com) (>= 1.20) and [Git](https://git-scm.com).
 
 ```shell
-# Init nms through this nm
-$ npx caz nm my-nm
+# create node modules through this
+$ npx caz nm my-module
 
-$ cd my-nm
+# enter generated directory
+$ cd my-template
 
-# Running test if you choose test features
-$ npm test # or yarn test
+# running test if you choose test features
+$ npm test # or `yarn test`
 ```
 
-Or use the global `caz`
+or
 
 ```shell
 # Install the `caz` globally
 $ npm install caz --global # or `yarn global add caz`
 
-$ caz nm my-nm
+# create node modules through this
+$ caz nm my-module
 
-$ cd my-nm
+# enter generated directory
+$ cd my-template
 
-# Running test if you choose test features
-$ npm test # or yarn test
+# running test if you choose test features
+$ npm test # or `yarn test`
 ```
 
 ## Contributing
@@ -52,11 +55,11 @@ $ npm test # or yarn test
 
 
 
-[travis-img]: https://img.shields.io/travis/caz-templates/nm.svg
+[travis-img]: https://img.shields.io/travis/caz-templates/nm
 [travis-url]: https://travis-ci.org/caz-templates/nm
-[dependency-img]: https://img.shields.io/david/caz-templates/nm.svg
+[dependency-img]: https://img.shields.io/david/caz-templates/nm
 [dependency-url]: https://david-dm.org/caz-templates/nm
-[devdependency-img]: https://img.shields.io/david/dev/caz-templates/nm.svg
+[devdependency-img]: https://img.shields.io/david/dev/caz-templates/nm
 [devdependency-url]: https://david-dm.org/caz-templates/nm?type=dev
-[style-img]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+[style-img]: https://img.shields.io/badge/code_style-standard-brightgreen
 [style-url]: https://standardjs.com

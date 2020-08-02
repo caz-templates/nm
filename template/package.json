@@ -40,10 +40,10 @@
     "cac": "^6.6.1"
   <% } %>},
   "devDependencies": {<% if (features.includes('test')) { %>
-    "jest": "^26.1.0",<% } %>
+    "jest": "^26.2.2",<% } %>
     "standard": "^14.3.4"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   }
 }

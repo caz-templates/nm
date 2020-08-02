@@ -87,19 +87,19 @@ Options:
 
 
 <% if (features.includes('test')) { %>
-[travis-image]: https://img.shields.io/travis/<%= github %>/<%= name %>/master.svg
+[travis-image]: https://img.shields.io/travis/<%= github %>/<%= name %>
 [travis-url]: https://travis-ci.org/<%= github %>/<%= name %><% if (features.includes('coverage')) { %>
-[codecov-image]: https://img.shields.io/codecov/c/github/<%= github %>/<%= name %>/master.svg
+[codecov-image]: https://img.shields.io/codecov/c/github/<%= github %>/<%= name %>
 [codecov-url]: https://codecov.io/gh/<%= github %>/<%= name %><% } %><% } %>
-[downloads-image]: https://img.shields.io/npm/dm/<%= name %>.svg
+[downloads-image]: https://img.shields.io/npm/dm/<%= name %>
 [downloads-url]: https://npmjs.org/package/<%= name %>
-[version-image]: https://img.shields.io/npm/v/<%= name %>.svg
+[version-image]: https://img.shields.io/npm/v/<%= name %>
 [version-url]: https://npmjs.org/package/<%= name %>
-[license-image]: https://img.shields.io/github/license/<%= github %>/<%= name %>.svg
+[license-image]: https://img.shields.io/github/license/<%= github %>/<%= name %>
 [license-url]: https://github.com/<%= github %>/<%= name %>/blob/master/LICENSE
-[dependency-image]: https://img.shields.io/david/<%= github %>/<%= name %>.svg
+[dependency-image]: https://img.shields.io/david/<%= github %>/<%= name %>
 [dependency-url]: https://david-dm.org/<%= github %>/<%= name %>
-[devdependency-image]: https://img.shields.io/david/dev/<%= github %>/<%= name %>.svg
+[devdependency-image]: https://img.shields.io/david/dev/<%= github %>/<%= name %>
 [devdependency-url]: https://david-dm.org/<%= github %>/<%= name %>?type=dev
-[style-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
+[style-image]: https://img.shields.io/badge/code_style-standard-brightgreen
 [style-url]: https://standardjs.com

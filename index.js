@@ -5,15 +5,15 @@ module.paths = module.parent.paths
 
 const path = require('path')
 const chalk = require('chalk')
-const caz = require('caz')
 const pkg = require('./package.json')
 
-const date = new Date()
+const isTest = process.env.NODE_ENV === 'test'
 
 /** @type {import('caz').Template} */
 module.exports = {
   name: pkg.name,
   version: pkg.version,
+  source: 'template',
   metadata: {
     year: date.getFullYear(),
     month: ('0' + (date.getMonth() + 1)).substr(-2),
@@ -57,17 +57,17 @@ module.exports = {
       message: 'Project license',
       initial: 'mit'
     },
-    // {
-    //   name: 'license',
-    //   type: 'select',
-    //   message: 'Project license',
-    //   hint: ' ',
-    //   initial: undefined,
-    //   choices: [
-    //     { title: 'MIT', value: 'mit' },
-    //     { title: 'Apache', value: 'apache' }
-    //   ]
-    // },
+    {
+      name: 'license',
+      type: 'select',
+      message: 'Project license',
+      hint: ' ',
+      initial: undefined,
+      choices: [
+        { value: 'MIT' },
+        { value: 'Apache' }
+      ]
+    },
     {
       name: 'github',
       type: 'text',
@@ -120,16 +120,16 @@ module.exports = {
   install: 'npm',
   init: true,
   prepare: async ctx => {
-    ctx.config.install = ctx.answers.pm
+    ctx.config.install = ctx.answers.install && ctx.answers.pm
   },
   complete: async ctx => {
     console.clear()
-    console.log(chalk`Created a new project in {cyan ${ctx.project}} by the {blue ${caz.file.tildify(ctx.template)}} template.\n`)
+    console.log(chalk`Created a new project in {cyan ${ctx.project}} by the {blue ${ctx.template}} template.\n`)
     console.log('Getting Started:')
     if (ctx.dest !== process.cwd()) {
       console.log(chalk`  $ {cyan cd ${path.relative(process.cwd(), ctx.dest)}}`)
     }
-    if (ctx.config.install == false) {
+    if (ctx.config.install === false) {
       console.log(chalk`  $ {cyan npm install} {gray # or yarn}`)
     }
     console.log(chalk`  $ {cyan ${ctx.config.install ? ctx.config.install : 'npm'} test}`)
