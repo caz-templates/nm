@@ -62,12 +62,24 @@ $ npm install <%= name %> -g
 
 ```shell
 $ <%= name %> --help
-Usage: <%= name %> <input>
+demo v0.1.0
+
+Usage:
+  $ <%= name %> <input>
+
+Commands:
+  <input>  Sample cli program
+
+For more info, run any command with the `--help` flag:
+  $ <%= name %> --help
 
 Options:
-  -H, --host     Email host
-  -h, --help     output usage information
-  -v, --version  output the version number
+  --host <host>  Sample options
+  -h, --help     Display this message
+  -v, --version  Display version number
+
+Examples:
+  $ <%= name %> w --host zce.me
 ```<% } %>
 
 ## Contributing
