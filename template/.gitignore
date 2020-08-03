@@ -1,7 +1,5 @@
 .DS_Store
-<% if (features.includes('coverage')) { %>
-coverage<% } %>
+coverage
 node_modules
-
 package-lock.json
 yarn.lock

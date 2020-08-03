@@ -28,8 +28,7 @@
     "url": "git+https://github.com/<%= github %>/<%= name %>.git"
   },
   "scripts": {
-    "lint": "standard --fix"<% if (features.includes('test')) { %>,
-    "test": "jest<%= features.includes('coverage') ? ' --coverage' : '' %>"<% } %>
+    "test": "standard --fix<%= features.includes('test') ? ' && jest --coverage' : '' %>"
   },
   "renovate": {
     "extends": [

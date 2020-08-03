@@ -1,13 +1,13 @@
 # <%= name %>
 <% if (features.includes('test')) { %>
-[![Build Status][travis-image]][travis-url]<% if (features.includes('coverage')) { %>
-[![Coverage Status][codecov-image]][codecov-url]<% } %><% } %>
-[![NPM Downloads][downloads-image]][downloads-url]
-[![NPM Version][version-image]][version-url]
-[![License][license-image]][license-url]
-[![Dependency Status][dependency-image]][dependency-url]
-[![devDependency Status][devdependency-image]][devdependency-url]
-[![Code Style][style-image]][style-url]
+[![Build Status][travis-img]][travis-url]
+[![Coverage Status][codecov-img]][codecov-url]<% } %>
+[![NPM Downloads][downloads-img]][downloads-url]
+[![NPM Version][version-img]][version-url]
+[![License][license-img]][license-url]
+[![Dependency Status][dependency-img]][dependency-url]
+[![devDependency Status][devdependency-img]][devdependency-url]
+[![Code Style][style-img]][style-url]
 
 > <%= description %>
 
@@ -22,21 +22,21 @@ $ yarn add <%= name %>
 
 ## Usage
 
-<!-- TODO: Introduction of API use -->
+<!-- TODO: Introduction of Usage -->
 
 ```javascript
 const <%= _.camelCase(name) %> = require('<%= name %>')
-const result = <%= _.camelCase(name) %>('zce')
-// result => 'zce@zce.me'
+const result = <%= _.camelCase(name) %>('w')
+// result => 'w@zce.me'
 ```
 
 ## API
 
 <!-- TODO: Introduction of API -->
 
-### <%= _.camelCase(name) %>(name[, options])
+### <%= _.camelCase(name) %>(input, options?)
 
-#### name
+#### input
 
 - Type: `string`
 - Details: name string
@@ -53,11 +53,18 @@ const result = <%= _.camelCase(name) %>('zce')
 
 <!-- TODO: Introduction of CLI -->
 
-```shell
-$ yarn global add <%= name %>
+Use npx:
 
-# or npm
+```shell
+$ npx <%= name %> <input> [options]
+```
+
+Globally install:
+
+```shell
 $ npm install <%= name %> -g
+# or yarn
+$ yarn global add <%= name %>
 ```
 
 ```shell
@@ -99,19 +106,19 @@ Examples:
 
 
 <% if (features.includes('test')) { %>
-[travis-image]: https://img.shields.io/travis/<%= github %>/<%= name %>
-[travis-url]: https://travis-ci.org/<%= github %>/<%= name %><% if (features.includes('coverage')) { %>
-[codecov-image]: https://img.shields.io/codecov/c/github/<%= github %>/<%= name %>
-[codecov-url]: https://codecov.io/gh/<%= github %>/<%= name %><% } %><% } %>
-[downloads-image]: https://img.shields.io/npm/dm/<%= name %>
+[travis-img]: https://img.shields.io/travis/<%= github %>/<%= name %>
+[travis-url]: https://travis-ci.org/<%= github %>/<%= name %>
+[codecov-img]: https://img.shields.io/codecov/c/github/<%= github %>/<%= name %>
+[codecov-url]: https://codecov.io/gh/<%= github %>/<%= name %><% } %>
+[downloads-img]: https://img.shields.io/npm/dm/<%= name %>
 [downloads-url]: https://npmjs.org/package/<%= name %>
-[version-image]: https://img.shields.io/npm/v/<%= name %>
+[version-img]: https://img.shields.io/npm/v/<%= name %>
 [version-url]: https://npmjs.org/package/<%= name %>
-[license-image]: https://img.shields.io/github/license/<%= github %>/<%= name %>
+[license-img]: https://img.shields.io/github/license/<%= github %>/<%= name %>
 [license-url]: https://github.com/<%= github %>/<%= name %>/blob/master/LICENSE
-[dependency-image]: https://img.shields.io/david/<%= github %>/<%= name %>
+[dependency-img]: https://img.shields.io/david/<%= github %>/<%= name %>
 [dependency-url]: https://david-dm.org/<%= github %>/<%= name %>
-[devdependency-image]: https://img.shields.io/david/dev/<%= github %>/<%= name %>
+[devdependency-img]: https://img.shields.io/david/dev/<%= github %>/<%= name %>
 [devdependency-url]: https://david-dm.org/<%= github %>/<%= name %>?type=dev
-[style-image]: https://img.shields.io/badge/code_style-standard-brightgreen
+[style-img]: https://img.shields.io/badge/code_style-standard-brightgreen
 [style-url]: https://standardjs.com

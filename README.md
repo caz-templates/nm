@@ -22,7 +22,7 @@ $ cd my-template
 $ npm test # or `yarn test`
 ```
 
-or
+Or use globally installed CAZ:
 
 ```shell
 # Install the `caz` globally
@@ -60,8 +60,8 @@ $ npm test # or `yarn test`
 
 
 
-[travis-img]: https://img.shields.io/travis/caz-templates/nm
-[travis-url]: https://travis-ci.org/caz-templates/nm
+[travis-img]: https://img.shields.io/travis/com/caz-templates/nm
+[travis-url]: https://travis-ci.com/caz-templates/nm
 [dependency-img]: https://img.shields.io/david/caz-templates/nm
 [dependency-url]: https://david-dm.org/caz-templates/nm
 [devdependency-img]: https://img.shields.io/david/dev/caz-templates/nm

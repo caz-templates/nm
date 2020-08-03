@@ -5,16 +5,14 @@ module.paths = module.parent.paths
 
 const path = require('path')
 const chalk = require('chalk')
-const pkg = require('./package.json')
+const { name, version } = require('./package.json')
 
-const isTest = process.env.NODE_ENV === 'test'
 const date = new Date()
 
 /** @type {import('caz').Template} */
 module.exports = {
-  name: pkg.name,
-  version: pkg.version,
-  source: 'template',
+  name,
+  version,
   metadata: {
     year: date.getFullYear(),
     month: ('0' + (date.getMonth() + 1)).substr(-2),
@@ -79,8 +77,7 @@ module.exports = {
         { title: 'CLI Program', value: 'cli' },
         { title: 'Additional docs', value: 'docs' },
         { title: 'Additional examples', value: 'example' },
-        { title: 'Automatic test', value: 'test', selected: true },
-        { title: 'Test coverage', value: 'coverage' }
+        { title: 'Automatic test', value: 'test', selected: true }
       ]
     },
     {
@@ -91,7 +88,7 @@ module.exports = {
     },
     {
       name: 'pm',
-      type: prev => isTest || prev ? 'select' : null,
+      type: prev => process.env.NODE_ENV === 'test' || prev ? 'select' : null,
       message: 'Package manager',
       hint: ' ',
       choices: [
