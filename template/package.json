@@ -44,7 +44,7 @@
     "cac": "^6.6.1"
   <% } %>},
   "devDependencies": {<% if (features.includes('test')) { %>
-    "jest": "^26.3.0",<% } %>
+    "jest": "^26.4.0",<% } %>
     "standard": "^14.3.4"
   },
   "engines": {
