@@ -22,7 +22,7 @@
     "url": "<%= url %>"
   },
   "main": "lib/index.js"<% if (features.includes('cli')) { %>,
-  "bin": "bin/<%= name %>.js"<% } %>,
+  "bin": "bin/cli.js"<% } %>,
   "files": [<% if (features.includes('cli')) { %>
     "bin",<% } %>
     "lib"
