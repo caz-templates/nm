@@ -11,35 +11,35 @@
   "bugs": {
     "url": "https://github.com/<%= github %>/<%= name %>/issues"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<%= github %>/<%= name %>.git"
+  },
   "license": "<%= license %>",
   "author": {
     "name": "<%= author %>",
     "email": "<%= email %>",
     "url": "<%= url %>"
   },
+  "main": "lib/index.js"<% if (features.includes('cli')) { %>,
+  "bin": "bin/<%= name %>.js"<% } %>,
   "files": [<% if (features.includes('cli')) { %>
     "bin",<% } %>
     "lib"
   ],
-  "main": "lib/index.js"<% if (features.includes('cli')) { %>,
-  "bin": "bin/<%= name %>.js"<% } %>,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/<%= github %>/<%= name %>.git"
-  },
   "scripts": {
     "test": "standard --fix<%= features.includes('test') ? ' && jest --coverage' : '' %>"
-  },
-  "renovate": {
-    "extends": [
-      "zce"
-    ]
   },<% if (features.includes('test')) { %>
   "standard": {
     "env": [
       "jest"
     ]
   },<% } %>
+  "renovate": {
+    "extends": [
+      "zce"
+    ]
+  },
   "dependencies": {<% if (features.includes('cli')) { %>
     "cac": "^6.6.1"
   <% } %>},
