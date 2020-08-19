@@ -3,32 +3,56 @@
   "version": "<%= version %>",
   "description": "<%= description %>",
   "keywords": [
-    "<%= name %>"<% if (features.includes('cli')) { %>,
-    "cli"<% } %>,
+    "<%= name %>",<% if (features.includes('cli')) { %>
+    "cli",<% } %>
     "zce"
   ],
-  "homepage": "https://github.com/<%= github %>/<%= name %>#readme",
-  "bugs": {
-    "url": "https://github.com/<%= github %>/<%= name %>/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/<%= github %>/<%= name %>.git"
-  },
+  "repository": "<%= github %>/<%= name %>",
   "license": "<%= license %>",
-  "author": {
-    "name": "<%= author %>",
-    "email": "<%= email %>",
-    "url": "<%= url %>"
-  },
-  "main": "lib/index.js"<% if (features.includes('cli')) { %>,
-  "bin": "bin/cli.js"<% } %>,
+  "author": "<%= author %> <<%= email %>> (<%= url %>)",
+  "main": "lib/index.js",<% if (features.includes('typescript')) { %>
+  "types": "lib/index.d.ts",<% } if (features.includes('cli')) { %>
+  "bin": "bin/<%= name %>.js",<% } %>
   "files": [<% if (features.includes('cli')) { %>
     "bin",<% } %>
     "lib"
-  ],
+  ],<% if (features.includes('typescript')) { %>
   "scripts": {
-    "test": "standard --fix<%= features.includes('test') ? ' && jest --coverage' : '' %>"
+    "clean": "rimraf lib",
+    "lint": "eslint src",
+    "compile": "tsc",
+    "build": "npm run clean && npm run lint && npm run compile",<% if (features.includes('test')) { %>
+    "test": "jest --coverage",<% } %>
+    "prepare": "npm run build<%= features.includes('test') ? ' && npm run test' : '' %>"
+  },
+  "eslintConfig": {
+    "extends": "standard-ts"
+  },<% if (features.includes('test')) { %>
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node"
+  },<% } %>
+  "renovate": {
+    "extends": [
+      "zce"
+    ]
+  },
+  "dependencies": {<% if (features.includes('cli')) { %>
+    "cac": "^6.6.1"
+  <% } %>},
+  "devDependencies": {<% if (features.includes('test')) { %>
+    "@types/jest": "26.0.10",<% } %>
+    "@types/node": "14.0.27",
+    "eslint": "7.7.0",
+    "eslint-config-standard-ts": "18.0.2",<% if (features.includes('test')) { %>
+    "jest": "26.4.0",<% } %>
+    "rimraf": "3.0.2",<% if (features.includes('test')) { %>
+    "ts-jest": "26.2.0",<% } %>
+    "typescript": "3.9.7"
+  },<% } else { %>
+  "scripts": {
+    "test": "standard --fix<%= features.includes('test') ? ' && jest --coverage' : '' %>",
+    "prepare": "npm run test"
   },<% if (features.includes('test')) { %>
   "standard": {
     "env": [
@@ -43,11 +67,14 @@
   "dependencies": {<% if (features.includes('cli')) { %>
     "cac": "^6.6.1"
   <% } %>},
-  "devDependencies": {<% if (features.includes('test')) { %>
-    "jest": "^26.4.0",<% } %>
-    "standard": "^14.3.4"
-  },
+  "devDependencies": {
+    "standard": "14.3.4"<% if (features.includes('test')) { %>,
+    "jest": "26.4.0"<% } %>
+  },<% } %>
   "engines": {
     "node": ">=10"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   }
 }

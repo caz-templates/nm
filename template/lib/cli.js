@@ -1,8 +1,6 @@
-#!/usr/bin/env node
-
 const cac = require('cac')
-const <%= _.camelCase(name) %> = require('..')
-const { name, version } = require('../package')
+const <%= _.camelCase(name) %> = require('.')
+const { name, version } = require('../package.json')
 
 // Unified error handling
 /* istanbul ignore next */
@@ -21,7 +19,7 @@ const cli = cac(name)
 cli
   .command('<input>', 'Sample cli program')
   .option('--host <host>', 'Sample options')
-  .example(`  $ ${name} w --host zce.me`)
+  .example(`  $ <%= '${name}' %> w --host zce.me`)
   .action((input, options) => {
     console.log(<%= _.camelCase(name) %>(input, options))
   })

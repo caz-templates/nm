@@ -1,0 +1,13 @@
+// https://aka.ms/tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ES2018",
+    "module": "CommonJS",
+    "declaration": true,
+    "outDir": "lib",
+    "strict": true,
+    "esModuleInterop": true,
+    "pretty": true
+  },
+  "include": ["src"] // declarations.d.ts
+}
