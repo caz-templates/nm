@@ -41,7 +41,7 @@
     ]
   },
   "dependencies": {<% if (features.includes('cli')) { %>
-    "cac": "6.6.1"
+    "cac": "^6.7.1"
   <% } %>},
   "devDependencies": {<% if (features.includes('test')) { %>
     "jest": "26.6.3",<% } %>
