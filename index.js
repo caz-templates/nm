@@ -74,9 +74,9 @@ module.exports = {
       message: 'Choose the features you need',
       instructions: false,
       choices: [
+        { title: 'Automatic test', value: 'test', selected: true },
         { title: 'TypeScript', value: 'typescript' },
         // { title: 'Rollup', value: 'rollup' },
-        { title: 'Automatic test', value: 'test', selected: true },
         { title: 'CLI Program', value: 'cli' },
         { title: 'Additional docs', value: 'docs' },
         { title: 'Additional examples', value: 'example' }
@@ -94,38 +94,28 @@ module.exports = {
       message: 'Package manager',
       hint: ' ',
       choices: [
-        { title: 'npm', value: 'npm' },
-        { title: 'yarn', value: 'yarn' },
-        { title: 'pnpm', value: 'pnpm' }
+        { value: 'npm' },
+        { value: 'yarn' },
+        { value: 'pnpm' }
       ]
     }
   ],
   filters: {
-    /** @param {{ features: string[] }} answers */
-    'bin/**': answers => answers.features.includes('cli'),
-    /** @param {{ features: string[] }} answers */
-    'docs/**': answers => answers.features.includes('docs'),
-    /** @param {{ features: string[] }} answers */
-    'example/*.js': answers => answers.features.includes('example') && !answers.features.includes('typescript'),
-    /** @param {{ features: string[] }} answers */
-    'example/*.ts': answers => answers.features.includes('example') && answers.features.includes('typescript'),
-    /** @param {{ features: string[] }} answers */
-    'lib/index.js': answers => !answers.features.includes('typescript'),
-    /** @param {{ features: string[] }} answers */
-    'lib/cli.js': answers => answers.features.includes('cli') && !answers.features.includes('typescript'),
-    /** @param {{ features: string[] }} answers */
-    'src/index.ts': answers => answers.features.includes('typescript'),
-    /** @param {{ features: string[] }} answers */
-    'src/cli.ts': answers => answers.features.includes('cli') && answers.features.includes('typescript'),
-    /** @param {{ features: string[] }} answers */
-    'test/*.js': answers => answers.features.includes('test') && !answers.features.includes('typescript'),
-    /** @param {{ features: string[] }} answers */
-    'test/*.ts': answers => answers.features.includes('test') && answers.features.includes('typescript'),
-    /** @param {{ features: string[] }} answers */
-    '.travis.yml': answers => answers.features.includes('test'),
-    /** @param {{ features: string[] }} answers */
-    'tsconfig.json': answers => answers.features.includes('typescript')
+    'docs/**': ({ features }) => features.includes('docs'),
+    'bin/**': ({ features }) => features.includes('cli'),
+    'lib/cli.js': ({ features }) => features.includes('cli') && !features.includes('typescript'),
+    'src/cli.ts': ({ features }) => features.includes('cli') && features.includes('typescript'),
+    'example/*.js': ({ features }) => features.includes('example') && !features.includes('typescript'),
+    'example/*.ts': ({ features }) => features.includes('example') && features.includes('typescript'),
+    'test/*.js': ({ features }) => features.includes('test') && !features.includes('typescript'),
+    'test/*.ts': ({ features }) => features.includes('test') && features.includes('typescript'),
+    '.travis.yml': ({ features }) => features.includes('test'),
+    'lib/index.js': ({ features }) => !features.includes('typescript'),
+    'src/index.ts': ({ features }) => features.includes('typescript'),
+    'tsconfig.eslint.json': ({ features }) => features.includes('typescript'),
+    'tsconfig.json': ({ features }) => features.includes('typescript')
   },
+  install: 'npm',
   init: true,
   setup: async ctx => {
     ctx.config.install = ctx.answers.install && ctx.answers.pm

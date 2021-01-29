@@ -4,5 +4,5 @@ import <%= _.camelCase(name) %> from '../src'
 test('<%= name %>', () => {
   expect(<%= _.camelCase(name) %>('w')).toBe('w@zce.me')
   expect(<%= _.camelCase(name) %>('w', { host: 'wedn.net' })).toBe('w@wedn.net')
-  expect(() => <%= _.camelCase(name) %>(100)).toThrow('Expected a string, got number')
+  expect(() => <%= _.camelCase(name) %>(100 as unknown as string)).toThrow('Expected a string, got number')
 })
