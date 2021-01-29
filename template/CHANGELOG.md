@@ -6,5 +6,5 @@
 
 <!-- http://keepachangelog.com/ -->
 
-<!-- [<%= version %>]: https://github.com/<%= github %>/<%= name %>/compare/v<%= version %>...v<%= version %> -->
+<!-- [0.1.1]: https://github.com/<%= github %>/<%= name %>/compare/v0.1.0...v0.1.1 -->
 [<%= version %>]: https://github.com/<%= github %>/<%= name %>/releases/tag/v<%= version %>

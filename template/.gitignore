@@ -1,5 +1,6 @@
-.DS_Store
-coverage
-node_modules
+.DS_Store<% if (features.includes('test')) { %>
+coverage<% } %>
+node_modules<% if (features.includes('typescript')) { %>
+lib<% } %>
 package-lock.json
 yarn.lock
