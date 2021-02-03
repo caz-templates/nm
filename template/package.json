@@ -51,7 +51,7 @@
     "extends": [
       "zce"
     ]
-  },<% if (enableTest) { %>
+  },<% if (!enableTs && enableTest) { %>
   "standard": {
     "env": [
       "jest"
