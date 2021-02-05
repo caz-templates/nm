@@ -69,7 +69,7 @@ $ yarn global add <%= name %>
 
 ```shell
 $ <%= name %> --help
-demo v0.1.0
+<%= name %> v0.1.0
 
 Usage:
   $ <%= name %> <input>
