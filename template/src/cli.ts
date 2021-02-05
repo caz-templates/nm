@@ -21,8 +21,11 @@ cli
   .command('<input>', 'Sample cli program')
   .option('--host <host>', 'Sample options')
   .example(`  $ <%= '${name as string}' %> w --host zce.me`)
-  .action((input, options) => {
-    console.log(<%= _.camelCase(name) %>(input, options))
+  .action((input, { host }) => {
+    if (typeof host !== 'string' && typeof host !== 'undefined') {
+      throw new TypeError(`Expected host is a string, got ${typeof host}`)
+    }
+    console.log(<%= _.camelCase(name) %>(input, { host }))
   })
 
 cli.help().version(version).parse()
