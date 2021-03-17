@@ -31,7 +31,7 @@
     "prepare": "npm run lint<%= enableTs ? ' && npm run build' : '' %><%= enableTest ? ' && npm run test' : '' %>"
   },
   "dependencies": {<% if (enableCli) { %>
-    "cac": "^6.7.1"
+    "cac": "^6.7.2"
   <% } %>},
   "devDependencies": {<% if (enableTs) { if (enableTest) { %>
     "@types/jest": "26.0.20",<% } %>
