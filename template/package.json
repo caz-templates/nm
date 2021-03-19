@@ -30,6 +30,16 @@
     "test": "jest --coverage",<% } %>
     "prepare": "npm run lint<%= enableTs ? ' && npm run build' : '' %><%= enableTest ? ' && npm run test' : '' %>"
   },
+  "renovate": {
+    "extends": [
+      "zce"
+    ]
+  },<% if (!enableTs && enableTest) { %>
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  },<% } %>
   "dependencies": {<% if (enableCli) { %>
     "cac": "^6.7.2"
   <% } %>},
@@ -46,16 +56,6 @@
   },<% if (enableTs && enableTest) { %>
   "jest": {
     "preset": "ts-jest"
-  },<% } %>
-  "renovate": {
-    "extends": [
-      "zce"
-    ]
-  },<% if (!enableTs && enableTest) { %>
-  "standard": {
-    "env": [
-      "jest"
-    ]
   },<% } %>
   "engines": {
     "node": ">=10"
