@@ -109,7 +109,6 @@ module.exports = {
     'example/*.ts': ({ features }) => features.includes('example') && features.includes('typescript'),
     'test/*.js': ({ features }) => features.includes('test') && !features.includes('typescript'),
     'test/*.ts': ({ features }) => features.includes('test') && features.includes('typescript'),
-    '.travis.yml': ({ features }) => features.includes('test'),
     'lib/index.js': ({ features }) => !features.includes('typescript'),
     'src/index.ts': ({ features }) => features.includes('typescript'),
     'tsconfig.eslint.json': ({ features }) => features.includes('typescript'),

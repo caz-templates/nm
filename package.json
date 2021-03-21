@@ -40,12 +40,18 @@
     ]
   },
   "dependencies": {
+    "@types/jest": "26.0.21",
+    "@types/node": "14.14.35",
     "cac": "6.7.2",
     "jest": "26.6.3",
-    "standard": "16.0.3"
+    "rimraf": "3.0.2",
+    "standard": "16.0.3",
+    "ts-jest": "26.5.4",
+    "ts-standard": "10.0.0",
+    "typescript": "4.2.3"
   },
   "devDependencies": {
-    "caz": "0.2.1",
+    "caz": "0.5.0",
     "jest": "26.6.3",
     "standard": "16.0.3"
   }

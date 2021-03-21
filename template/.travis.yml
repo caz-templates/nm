@@ -1,7 +1,0 @@
-language: node_js
-
-node_js:
-  - lts/*<% if (features.includes('test')) { %>
-
-after_script:
-  - npx codecov<% } %>
