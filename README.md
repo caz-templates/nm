@@ -9,10 +9,10 @@
 
 ## Usage
 
-Prerequisites: [Node.js](https://nodejs.org) (>= 10.17, 12.10 preferred), [npm](https://www.npmjs.com) (>= 6.x) or [yarn](https://yarnpkg.com) (>= 1.20) and [Git](https://git-scm.com).
+Prerequisites: [Node.js](https://nodejs.org) (>= 10.12, 14.16 preferred), [npm](https://www.npmjs.com) (>= 6.x) or [yarn](https://yarnpkg.com) (>= 1.20) and [Git](https://git-scm.com).
 
 ```shell
-# create node modules through this
+# create node modules by this template
 $ npx caz nm my-module
 
 # enter generated directory
@@ -28,7 +28,7 @@ Or use globally installed CAZ:
 # Install the `caz` globally
 $ npm install caz --global # or `yarn global add caz`
 
-# create node modules through this
+# create node modules by this template
 $ caz nm my-module
 
 # enter generated directory
@@ -42,6 +42,10 @@ $ npm test # or `yarn test`
 
 - [ ] use TypeScript branch template
 - [ ] use Rollup branch template
+
+## Related
+
+- [zce/caz](https://github.com/zce/caz) - A simple yet powerful template-based Scaffolding tools.
 
 ## Contributing
 

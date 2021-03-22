@@ -89,6 +89,10 @@ Examples:
   $ <%= name %> w --host zce.me
 ```<% } %>
 
+## Related
+
+- [zce/caz](https://github.com/zce/caz) - A simple yet powerful template-based Scaffolding tools.
+
 ## Contributing
 
 1. **Fork** it on GitHub!
