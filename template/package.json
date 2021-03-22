@@ -24,9 +24,7 @@
   ],
   "scripts": {
     "lint": "<%= enableTs ? 'ts-' : '' %>standard --fix",<% if (enableTs) { %>
-    "clean": "rimraf lib",
-    "compile": "tsc",
-    "build": "npm run clean && npm run lint && npm run compile",<% } if (enableTest) { %>
+    "build": "rimraf lib && tsc",<% } if (enableTest) { %>
     "test": "jest --coverage",<% } %>
     "prepare": "npm run lint<%= enableTs ? ' && npm run build' : '' %><%= enableTest ? ' && npm run test' : '' %>"
   },
