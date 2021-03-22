@@ -1,6 +1,6 @@
 # <%= name %>
 <% if (features.includes('test')) { %>
-[![Build Status][travis-img]][travis-url]
+[![Build Status][actions-img]][actions-url]
 [![Coverage Status][codecov-img]][codecov-url]<% } %>
 [![License][license-img]][license-url]
 [![NPM Downloads][downloads-img]][downloads-url]
@@ -110,8 +110,8 @@ Examples:
 
 
 <% if (features.includes('test')) { %>
-[travis-img]: https://img.shields.io/travis/com/<%= github %>/<%= name %>
-[travis-url]: https://travis-ci.com/<%= github %>/<%= name %>
+[actions-img]: https://img.shields.io/github/workflow/status/<%= github %>/<%= name %>/CI
+[actions-url]: https://github.com/<%= github %>/<%= name %>/actions
 [codecov-img]: https://img.shields.io/codecov/c/github/<%= github %>/<%= name %>
 [codecov-url]: https://codecov.io/gh/<%= github %>/<%= name %><% } %>
 [license-img]: https://img.shields.io/github/license/<%= github %>/<%= name %>
