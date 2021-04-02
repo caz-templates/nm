@@ -42,8 +42,8 @@
     "cac": "^6.7.2"
   <% } %>},
   "devDependencies": {<% if (enableTs) { if (enableTest) { %>
-    "@types/jest": "26.0.21",<% } %>
-    "@types/node": "14.14.35",<% if (enableTest) { %>
+    "@types/jest": "26.0.22",<% } %>
+    "@types/node": "14.14.37",<% if (enableTest) { %>
     "jest": "26.6.3",<% } %>
     "rimraf": "3.0.2",<% if (enableTest) { %>
     "ts-jest": "26.5.4",<% } %>
