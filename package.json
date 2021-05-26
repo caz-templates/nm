@@ -48,7 +48,7 @@
     "standard": "16.0.3",
     "ts-jest": "26.5.4",
     "ts-standard": "10.0.0",
-    "typescript": "4.2.4"
+    "typescript": "4.3.2"
   },
   "devDependencies": {
     "caz": "0.6.0",
