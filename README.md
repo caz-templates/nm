@@ -2,7 +2,6 @@
 
 [![Build Status][travis-img]][travis-url]
 [![Dependency Status][dependency-img]][dependency-url]
-[![devDependency Status][devdependency-img]][devdependency-url]
 [![Code Style][style-img]][style-url]
 
 > A template for creating node modules.
@@ -61,9 +60,7 @@ $ npm test # or `yarn test`
 
 [travis-img]: https://img.shields.io/travis/com/caz-templates/nm
 [travis-url]: https://travis-ci.com/caz-templates/nm
-[dependency-img]: https://img.shields.io/david/caz-templates/nm
-[dependency-url]: https://david-dm.org/caz-templates/nm
-[devdependency-img]: https://img.shields.io/david/dev/caz-templates/nm
-[devdependency-url]: https://david-dm.org/caz-templates/nm?type=dev
+[dependency-img]: https://img.shields.io/librariesio/release/github/caz-templates/nm
+[dependency-url]: https://github.com/caz-templates/nm
 [style-img]: https://img.shields.io/badge/code_style-standard-brightgreen
 [style-url]: https://standardjs.com
