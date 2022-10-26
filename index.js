@@ -1,7 +1,6 @@
 // @ts-check
 
 const path = require('path')
-const chalk = require('chalk')
 const { name, version } = require('./package.json')
 
 const date = new Date()
@@ -12,8 +11,8 @@ module.exports = {
   version,
   metadata: {
     year: date.getFullYear(),
-    month: ('0' + (date.getMonth() + 1)).substr(-2),
-    day: ('0' + date.getDate()).substr(-2)
+    month: String(date.getMonth() + 1).padStart(2, '0'),
+    day: String(date.getDate()).padStart(2, '0')
   },
   prompts: [
     {
@@ -117,20 +116,21 @@ module.exports = {
     ctx.config.install = ctx.answers.install && ctx.answers.pm
   },
   complete: async ctx => {
+    const client = ctx.config.install ? ctx.config.install : 'npm'
     console.clear()
-    console.log(chalk`Created a new project in {cyan ${ctx.project}} by the {blue ${ctx.template}} template.\n`)
+    console.log(`Created a new project in ${ctx.project} by the ${ctx.template} template.\n`)
     console.log('Getting Started:')
     if (ctx.dest !== process.cwd()) {
-      console.log(chalk`  $ {cyan cd ${path.relative(process.cwd(), ctx.dest)}}`)
+      console.log(`  $ cd ${path.relative(process.cwd(), ctx.dest)}`)
     }
     if (ctx.config.install === false) {
-      console.log(chalk`  $ {cyan npm install} {gray # or yarn}`)
+      console.log(`  $ ${client} install`)
     }
     if (ctx.answers.features.includes('typescript')) {
-      console.log(chalk`  $ {cyan ${ctx.config.install ? ctx.config.install : 'npm'} run build}`)
+      console.log(`  $ ${client} run build`)
     }
     if (ctx.answers.features.includes('test')) {
-      console.log(chalk`  $ {cyan ${ctx.config.install ? ctx.config.install : 'npm'} test}`)
+      console.log(`  $ ${client} test`)
     }
     console.log('\nHappy hacking :)\n')
   }
